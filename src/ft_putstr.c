@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 19:25:16 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/18 18:06:05 by ryoshimi         ###   ########.fr       */
+/*   Created: 2023/07/18 17:49:17 by ryoshimi          #+#    #+#             */
+/*   Updated: 2023/07/18 18:50:53 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
 
-int		ft_printf(const char *src, ...);
-void	ft_putchar(char c);
-int		ft_putstr(char *s);
+int	ft_putstr(char *s)
+{
+	int	count;
 
-#endif
+	count = 0;
+	while (s && *s)
+	{
+		ft_putchar(*s);
+		s++;
+		count++;
+	}
+	return (count);
+}
