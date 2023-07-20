@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 19:25:16 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/20 17:14:42 by ryoshimi         ###   ########.fr       */
+/*   Created: 2023/07/20 16:59:54 by ryoshimi          #+#    #+#             */
+/*   Updated: 2023/07/20 19:25:27 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../include/ft_printf.h"
+#include <stdio.h> //APAGARRRR!!!
 
-# include <stdlib.h>
-# include <stdarg.h>
+size_t	ft_puthex(int num)
+{
+	// long	num;
+	size_t	size;
+	char	c;
 
-int		ft_printf(const char *src, ...);
-void	ft_putchar(char c);
-int		ft_putstr(char *s);
-size_t	ft_putnbr(int n);
-size_t	ft_putnbr_u(unsigned int n);
-size_t	check_type(const char *str, va_list src, size_t printed_bytes);
-size_t	ft_puthex(int n);
-char	*ft_itoa(int n);
-
-#endif
+	// num = n;
+	size = 0;
+	if (num / 16 > 0)
+	{
+		size += ft_puthex(num / 16);
+	}
+	if (num % 16 >= 10)
+		c = num % 16 + 39 + '0';
+	else
+		c = num % 16 + '0';
+	ft_putchar(c);
+	size++;
+	printf("size: %zu", size);
+	return (size);
+}

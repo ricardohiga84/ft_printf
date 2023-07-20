@@ -6,7 +6,7 @@
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 19:25:10 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/18 18:55:15 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/07/20 14:54:49 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,24 @@
 #include <stdio.h>
 #include "../include/ft_printf.h"
 
-int	ft_printf(const char *src, ...)
+int	ft_printf(const char *str, ...)
 {
-	va_list	str;
-	int		count;
+	va_list	src;
+	size_t	printed_bytes;
 
-	va_start(str, src);
-	count = 0;
-	while (*src)
+	va_start(src, str);
+	printed_bytes = 0;
+	while (*str)
 	{
-		if (*src == '%')
+		if (*str == '%')
 		{
-			src++;
-			if (*src == 'c')
-			{
-				ft_putchar(va_arg(str, int));
-			}
-			else if (*src == 's')
-			{
-				count += ft_putstr(va_arg(str, char *)) - 1;
-			}
+			str++;
+			printed_bytes = check_type(str, src, printed_bytes);
 		}
 		else
-			ft_putchar(*src);
-		src++;
-		count++;
+			ft_putchar(*str);
+		str++;
+		printed_bytes++;
 	}
-	return (count);
+	return (printed_bytes);
 }
