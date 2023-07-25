@@ -5,9 +5,10 @@ FLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
 SRC = ./src/ft_printf.c ./src/ft_putchar.c ./src/ft_putstr.c \
-	./src/check_type.c ./src/ft_putnbr.c ./src/ft_puthex.c
+	./src/check_type.c ./src/ft_putnbr.c ./src/ft_puthex.c \
+	./src/ft_putpointer.c
 
-INCLUDE = ./include/ft_printf.h
+INCLUDE = ./include
 
 OBJ = $(SRC:.c=.o)
 

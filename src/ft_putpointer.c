@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 16:59:54 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/24 18:08:28 by ryoshimi         ###   ########.fr       */
+/*   Created: 2023/07/22 16:23:55 by ryoshimi          #+#    #+#             */
+/*   Updated: 2023/07/24 18:10:38 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
-#include <stdio.h> //APAGARRRR!!!
+#include <stdio.h> //APAGARRR!!
 
-size_t	ft_puthex(unsigned int num, char x)
+size_t	ft_putptrhex(unsigned long long num)
 {
 	size_t	size;
 	char	c;
@@ -21,18 +21,28 @@ size_t	ft_puthex(unsigned int num, char x)
 	size = 0;
 	if (num / 16 > 0)
 	{
-		size += ft_puthex(num / 16, x);
+		size += ft_putptrhex(num / 16);
 	}
 	if (num % 16 >= 10)
-	{
-		if (x == 'x')
-			c = num % 16 + 39 + '0';
-		else
-			c = num % 16 + 7 + '0';
-	}
+		c = num % 16 + 39 + '0';
 	else
 		c = num % 16 + '0';
 	ft_putchar(c);
 	size++;
+	return (size);
+}
+
+size_t	ft_putpointer(unsigned long long num)
+{
+	size_t	size;
+
+	size = 0;
+	if (!num)
+	{
+		size += ft_putstr("(nil)");
+		return (size);
+	}
+	size += ft_putstr("0x");
+	size += ft_putptrhex(num);
 	return (size);
 }
