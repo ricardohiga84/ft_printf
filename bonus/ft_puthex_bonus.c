@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_puthex_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 16:59:54 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:34:17 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:23:43 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf_bonus.h"
 
 size_t	ft_puthex(unsigned int num, char x)
 {

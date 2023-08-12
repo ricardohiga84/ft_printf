@@ -4,35 +4,31 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRC = ./src/ft_printf.c ./src/ft_putchar.c ./src/ft_putstr.c \
-		./src/check_type.c ./src/ft_putnbr.c ./src/ft_puthex.c \
-		./src/ft_putpointer.c
+SRC = ft_printf.c ft_putchar.c ft_putstr.c \
+	check_type.c ft_putnbr.c ft_puthex.c \
+	ft_putpointer.c
 
-
-INCLUDE = ./include
+BONUS_SRC = ./bonus/ft_printf_bonus.c ./bonus/check_type_bonus.c \
+			./bonus/ft_putchar_bonus.c ./bonus/ft_puthex_bonus.c \
+			./bonus/ft_putnbr_bonus.c ./bonus/ft_putpointer_bonus.c \
+			./bonus/ft_putstr_bonus.c
 
 OBJ = $(SRC:.c=.o)
 
-SRC_BONUS = ./bonus/ft_printf_bonus.c ./bonus/ft_putchar_bonus.c \
-			./bonus/ft_putstr_bonus.c ./bonus/check_type_bonus.c \
-			./bonus/ft_putnbr_bonus.c ./bonus/ft_puthex_bonus.c \
-			./bonus/ft_putpointer_bonus.c
-
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
-bonus: $(OBJ_BONUS)
-	ar rcs $(NAME) $^
+bonus: $(BONUS_OBJ)
 
 $(NAME): $(OBJ)
-	ar rcs $@ $^
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -I $(INCLUDE) -o $@
+	$(CC) $(FLAGS) -c $< -o $@
+	ar -rcs $(NAME) $@
 
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)

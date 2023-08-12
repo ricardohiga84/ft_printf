@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 19:25:10 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:36:19 by ryoshimi         ###   ########.fr       */
+/*   Created: 2023/07/20 16:59:54 by ryoshimi          #+#    #+#             */
+/*   Updated: 2023/08/12 16:25:16 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+size_t	ft_puthex(unsigned int num, char x)
 {
-	va_list	src;
-	size_t	printed_bytes;
+	size_t	size;
+	char	c;
 
-	va_start(src, str);
-	printed_bytes = 0;
-	while (*str)
+	size = 0;
+	if (num / 16 > 0)
 	{
-		if (*str == '%')
-		{
-			str++;
-			printed_bytes = check_type(str, src, printed_bytes);
-		}
-		else
-			printed_bytes += ft_putchar(*str);
-		str++;
+		size += ft_puthex(num / 16, x);
 	}
-	va_end(src);
-	return (printed_bytes);
+	if (num % 16 >= 10)
+	{
+		if (x == 'x')
+			c = num % 16 - 10 + 'a';
+		else
+			c = num % 16 - 10 + 'A';
+	}
+	else
+		c = num % 16 + '0';
+	size += ft_putchar(c);
+	return (size);
 }

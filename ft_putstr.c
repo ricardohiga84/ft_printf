@@ -6,11 +6,11 @@
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:49:17 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:25:04 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:25:29 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {

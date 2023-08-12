@@ -6,11 +6,11 @@
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:23:00 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:21:29 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/08/12 16:25:05 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 #include <stdarg.h>
 
 size_t	check_type(const char *str, va_list src, size_t printed_bytes)
