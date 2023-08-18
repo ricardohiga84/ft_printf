@@ -6,11 +6,11 @@
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 17:22:41 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:20:40 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:10:53 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 size_t	ft_putchar(char c)
 {

@@ -6,7 +6,7 @@
 /*   By: ryoshimi <ryoshimi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 19:25:16 by ryoshimi          #+#    #+#             */
-/*   Updated: 2023/07/25 16:35:00 by ryoshimi         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:10:21 by ryoshimi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(const char *src, ...);
 int		ft_putstr(char *s);
